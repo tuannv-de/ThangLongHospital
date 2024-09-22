@@ -1,0 +1,78 @@
+/* Đặt màu sắc chủ đạo */
+:root {
+    --primary-color: #bf0311; /* Màu đỏ */
+    --secondary-color: #00bfff; /* Màu xanh sáng */
+}
+
+/* Thiết lập nền và kiểu chữ cho trang */
+body {
+    background-color: #f8f9fa; /* Nền sáng */
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--primary-color);
+    border-radius: 0; /* Bỏ border-radius */
+}
+
+.navbar-brand {
+    color: white !important;
+}
+
+/* Container cho form */
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Thêm border-radius */
+}
+
+/* Định dạng cho tiêu đề */
+h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* Nút đăng ký */
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 16px;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Định dạng liên kết */
+a {
+    color: var(--primary-color);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* Định dạng trường form */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(191, 3, 17, 0.5);
+}

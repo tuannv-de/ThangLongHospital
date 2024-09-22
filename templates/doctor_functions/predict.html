@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thang Long Hospital</title>
+  {% include 'partials/_css.html' %}
+  <link href="{% static 'heartcare/css/predict.css' %}" rel="stylesheet">
+</head>
+
+<body>
+  <div class="wrapper">
+    {% include 'partials/_doctor_header.html' %}
+
+    <form method="POST" class="health-form">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="BMI" class="form-label">BMI (12.0 đến 95.0):</label>
+            <input type="number" name="BMI" class="form-input" min="12.0" max="95.0" step="0.1" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="Smoking" class="form-label">Smoking:</label>
+            <select name="Smoking" class="form-select" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="AlcoholDrinking" class="form-label">Alcohol Drinking:</label>
+            <select name="AlcoholDrinking" class="form-select" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Stroke" class="form-label">Stroke:</label>
+            <select name="Stroke" class="form-select" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="PhysicalHealth" class="form-label">Physical Health (0.0 đến 30.0):</label>
+            <input type="number" name="PhysicalHealth" class="form-input" min="0" max="30" step="0.1" required>
+        </div>
+
+        <div class="form-group">
+            <label for="MentalHealth" class="form-label">Mental Health (0.0 đến 30.0):</label>
+            <input type="number" name="MentalHealth" class="form-input" min="0" max="30" step="0.1" required>
+        </div>
+
+        <div class="form-group">
+            <label for="DiffWalking" class="form-label">Diff Walking:</label>
+            <select name="DiffWalking" class="form-select" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Sex" class="form-label">Sex:</label>
+            <select name="Sex" class="form-select" required>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="AgeCategory" class="form-label">Age Category:</label>
+            <select name="AgeCategory" class="form-select" required>
+                <option value="65-69">65-69</option>
+                <option value="60-64">60-64</option>
+                <option value="70-74">70-74</option>
+                <option value="55-59">55-59</option>
+                <option value="50-54">50-54</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Race" class="form-label">Race:</label>
+            <select name="Race" class="form-select" required>
+                <option value="White">White</option>
+                <option value="Hispanic">Hispanic</option>
+                <option value="Black">Black</option>
+                <option value="Other">Other</option>
+                <option value="Asian">Asian</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="Diabetic" class="form-label">Diabetic:</label>
+            <select name="Diabetic" class="form-select" required>
+                <option value="No">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No borderline diabetes">No borderline diabetes</option>
+                <option value="Yes (during pregnancy)">Yes (during pregnancy)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="PhysicalActivity" class="form-label">Physical Activity:</label>
+            <select name="PhysicalActivity" class="form-select" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="GenHealth" class="form-label">General Health:</label>
+            <select name="GenHealth" class="form-select" required>
+                <option value="Very good">Very good</option>
+                <option value="Good">Good</option>
+                <option value="Excellent">Excellent</option>
+                <option value="Fair">Fair</option>
+                <option value="Poor">Poor</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="SleepTime" class="form-label">Sleep Time (0 đến 24 giờ):</label>
+            <input type="number" name="SleepTime" class="form-input" min="0" max="24" required>
+        </div>
+
+        <div class="form-group">
+            <label for="Asthma" class="form-label">Asthma:</label>
+            <select name="Asthma" class="form-select" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="KidneyDisease" class="form-label">Kidney Disease:</label>
+            <select name="KidneyDisease" class="form-select" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="SkinCancer" class="form-label">Skin Cancer:</label>
+            <select name="SkinCancer" class="form-select" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+        </div>
+
+        <input type="submit" value="Dự đoán" class="btn-submit">
+    </form>
+
+    {% include 'partials/_footer.html' %}
+    {% include 'partials/_js.html' %}
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+.health-form {
+    max-width: 600px; /* Đặt chiều rộng tối đa cho form */
+    margin: 0 auto; /* Giữa form trong wrapper */
+    padding: 20px; /* Thêm padding */
+    border: 1px solid #ccc; /* Đường viền */
+    border-radius: 8px; /* Bo góc */
+    background-color: #f9f9f9; /* Màu nền */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Khoảng cách giữa các nhóm */
+}
+
+.form-label {
+    display: block; /* Hiển thị nhãn dạng khối */
+    margin-bottom: 5px; /* Khoảng cách dưới nhãn */
+    font-weight: bold; /* Đậm nhãn */
+}
+
+.form-input,
+.form-select {
+    width: 100%; /* Chiều rộng 100% */
+    padding: 10px; /* Thêm padding */
+    border: 1px solid #ccc; /* Đường viền */
+    border-radius: 4px; /* Bo góc */
+}
+
+.btn-submit {
+    background-color: #4CAF50; /* Màu nền nút */
+    color: white; /* Màu chữ nút */
+    padding: 10px; /* Padding cho nút */
+    border: none; /* Không có đường viền */
+    border-radius: 4px; /* Bo góc */
+    cursor: pointer; /* Con trỏ khi hover */
+    width: 100%; /* Chiều rộng 100% */
+}
+
+.btn-submit:hover {
+    background-color: #45a049; /* Màu nền khi hover */
+}

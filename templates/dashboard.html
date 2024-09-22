@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thang Long Hospital</title>
+  {% include 'partials/_css.html' %}
+</head>
+
+<body>
+  <!--Wrapper Start-->
+  <div class="wrapper">
+    <!--Header Start-->
+    {% include 'partials/_doctor_header.html' %}
+    <!--Header End-->
+
+    <!-- Main Content Start -->
+    <div>
+      <h1 class="table-title">Danh sách lịch hẹn nhận được</h1>
+      <table border="1">
+          <thead>
+              <tr>
+                  <th>Tên bệnh nhân</th>
+                  <th>Điện thoại</th>
+                  <th>Email</th>
+                  <th>Ngày</th>
+                  <th>Thời gian</th>
+                  <th>Ghi chú</th>
+                  <th>Trạng thái</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for appointment in appointments %}
+              <tr>
+                  <td>{{ appointment.name }}</td>
+                  <td>{{ appointment.phone }}</td>
+                  <td>{{ appointment.email }}</td>
+                  <td>{{ appointment.date }}</td>
+                  <td>{{ appointment.time }}</td>
+                  <td>{{ appointment.note }}</td>
+                  <td>
+                      <select class="status-dropdown" data-appointment-id="{{ appointment.id }}">
+                          <option value="pending" {% if appointment.status == 'pending' %}selected{% endif %}>Đang chờ</option>
+                          <option value="accepted" {% if appointment.status == 'accepted' %}selected{% endif %}>Chấp nhận</option>
+                          <option value="completed" {% if appointment.status == 'completed' %}selected{% endif %}>Đã khám</option>
+                      </select>
+                  </td>
+              </tr>
+              {% empty %}
+              <tr>
+                  <td colspan="9">Chưa có lịch hẹn nào.</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+    </div>  
+    <!-- Main content End -->
+
+    <!--Footer Start-->
+    {% include 'partials/_footer.html' %}
+    <!--Footer End-->
+    {% include 'partials/_js.html' %}
+
+    <script>
+      document.querySelectorAll('.status-dropdown').forEach(dropdown => {
+        dropdown.addEventListener('change', function() {
+          const appointmentId = this.getAttribute('data-appointment-id');
+          const newStatus = this.value;
+
+          fetch("{% url 'update_status' %}", {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-CSRFToken': '{{ csrf_token }}'  // Thêm CSRF token để bảo mật
+            },
+            body: JSON.stringify({
+              'appointment_id': appointmentId,
+              'status': newStatus
+            })
+          }).then(response => {
+            if (response.ok) {
+              return response.json();
+            }
+          }).then(data => {
+            if (data.success) {
+              alert("Trạng thái đã được cập nhật.");
+            } else {
+              alert("Có lỗi xảy ra.");
+            }
+          });
+        });
+      });
+    </script>
+</body>
+
+</html>

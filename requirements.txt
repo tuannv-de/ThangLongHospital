@@ -1,0 +1,7 @@
+django
+pillow
+gunicorn
+psycopg2-binary
+whitenoise
+pyspark
+numpy

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block maincontent %}
+<!--Main Content Start-->
+<div class="main-content">
+  <!--Welcome Section-->
+  <section class="welcome-section">
+    <div class="container">
+      <div class="row">
+        <div class="welcome-box">
+          <div class="col-md-6 col-sm-6">
+            <div class="welcome-text">
+              <div class="sectio-title-2"> <strong>Chào mừng đến với</strong>
+                <h2>THANG LONG HOSPITAL</h2>
+              </div>
+              <p>Thang Long Hospital là một nền tảng y tế hiện đại được thiết kế nhằm cung cấp dịch vụ chăm sóc sức khỏe tim mạch toàn diện cho cộng đồng. Với giao diện thân thiện và dễ sử dụng, người dùng có thể đặt lịch khám trực tuyến với các bác sĩ chuyên khoa tim mạch uy tín chỉ bằng vài thao tác đơn giản</p>
+              <p>Bên cạnh đó, trang web còn tích hợp công cụ dự đoán bệnh tim dựa trên các chỉ số sức khỏe cá nhân. Bằng cách nhập các thông tin liên quan đến sức khỏe như huyết áp, cholesterol, tiền sử bệnh, hệ thống sẽ sử dụng thuật toán thông minh để đưa ra các dự đoán về nguy cơ mắc các bệnh lý tim mạch, từ đó giúp người dùng phát hiện sớm và chủ động trong việc chăm sóc sức khỏe của mình.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <div class="welcome-img"> <img src="{% static 'heartcare/images/protect-your-heart-bg-2.jpg' %}" alt=""> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Welcome Section End-->
+
+
+  <!--Team Start-->
+  <section class="team">
+    <div class="container">
+      <div class="row">
+        <div class="section-title-3"> <strong>Đội Ngũ Của Chúng Tôi</strong>
+          <h2>Các Bác Sĩ</h2>
+        </div>
+      </div>
+      <div class="row">
+        {% for doctor in experts|slice:':4' %}
+        <div class="col-md-3 col-sm-6">
+          <div class="team-box mb50">
+            <div class="team-thumb"> <a href="{% url 'doctor_details' doctor.id %}" class="view"><i class="fa fa-Heart"
+                  aria-hidden="true"></i></a> <img src="{{ doctor.picture.url }}" alt=""></div>
+            <div class="team-text">
+              <h5><a href="{% url 'doctor_details' doctor.id %}">{{ doctor.name }}</a></h5>
+              <strong>{{ doctor.speciality }}</strong>
+              <ul class="team-social">
+                {% if doctor.twitter %}
+                <li><a class="tw" href="{{ doctor.twitter }}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                {% endif %}
+                {% if doctor.facebook %}
+                <li><a class="fb" href="{{ doctor.facebook }}"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                </li>
+                {% endif %}
+                {% if doctor.instagram %}
+                <li><a class="insta" href="{{ doctor.instagram }}"><i class="fa fa-instagram"
+                      aria-hidden="true"></i></a></li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <!--Team End-->
+
+
+  
+
+</div>
+<!--Main Content End-->
+{% endblock maincontent %}

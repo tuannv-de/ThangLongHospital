@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block maincontent %}
+<!--inner banner-->
+<div class="inner-banner">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1>Thông Tin Bác Sĩ</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<!--inner banner End-->
+
+<!--Main Content Start-->
+<div class="main-content">
+  <div class="team-details">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-6">
+          <div class="team-detail-img"> <img src="{{ object.picture.url }}" alt=""> </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <div class="team-details-text">
+            <div class="sectio-title-2"> <strong>{{ object.speciality }}</strong>
+              <h2>{{ object.name }}</h2>
+            </div>
+            <p>{{ object.details }}</p>
+            <ul class="team-social">
+              <li><strong>Share :</strong></li>
+              <li><a class="tw" href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+              <li><a class="fb" href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+              <li><a class="gp" href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+              <li><a class="insta" href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+              <li><a class="ytp" href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+            </ul>
+            <a class="book-app" href="{% url 'appointment' %}">Đặt Lịch Khám</a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="team-exp">
+            <div class="sectio-title-2"> <strong>{{ object.speciality }}</strong>
+              <h2>Kinh Nghiệm Bác Sĩ</h2>
+            </div>
+            {{ object.experience}}
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+<!--Main Content End-->
+{% endblock maincontent %}
