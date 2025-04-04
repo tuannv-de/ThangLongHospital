@@ -8,6 +8,14 @@ Chức năng
 - chức năng giúp người bệnh đặt lịnh khám với bác sĩ,
 - hỗ trợ bác sĩ quản lý đơn đăng ký khám
 
+```bash
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver
+mở web ở http://localhost:8000
+```
+
 ## **UI**
 ![Picture5](https://github.com/user-attachments/assets/9f7b0fc1-e377-45ec-bd43-ee2b825034dc)
 ![Picture2](https://github.com/user-attachments/assets/2ecfd24a-9777-4c50-a378-60bbd632b646)
