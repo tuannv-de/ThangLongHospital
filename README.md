@@ -8,6 +8,7 @@ Chức năng
 - chức năng giúp người bệnh đặt lịnh khám với bác sĩ,
 - hỗ trợ bác sĩ quản lý đơn đăng ký khám
 
+## **Setup & Deploy**
 ```bash
 pip install -r requirements.txt
 python manage.py migrate
